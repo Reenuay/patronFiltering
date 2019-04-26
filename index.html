@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Patron filtering</title>
+    <meta name="description" content="Patron filtering demonstration">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/src/public/css/bulma.min.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="app">
+        <section class="hero is-primary is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent">
+                            <div class="tile is-child">
+                                <h1 class="title is-size-2">
+                                    Patron filtering
+                                </h1>
+                                <h2 class="subtitle">
+                                    Demonstration
+                                </h2>
+                            </div>
+                            <div class="tile is-child">
+                                <a>
+                                    <img class="is-pulled-right" src="/src/public/assets/GitHub-Mark.png" title="View source on Github"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="tile is-ancestor is-vertical">
+                    <div class="tile is-parent">
+                        <div class="tile">
+                            <div class="content">
+                                <h3 class="is-size-5 has-text-weight-semibold">Task</h3>
+                                <p>
+                                    Write function <v-text color="link">f(x, n)</v-text> that
+                                    accepts list of unique <v-text color="link">words</v-text>
+                                    <v-text color="link">x</v-text> and positive integer
+                                    <v-text color="link">n</v-text> that represents maximum
+                                    occurences number of one <v-text color="link">element</v-text>
+                                    in list as parameters and returns new list that doesn't include
+                                    <v-Text color="link">patrons</v-text>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile">
+                            <div class="content">
+                                <h3 class="is-size-5 has-text-weight-semibold">Explanation</h3>
+                                <p>
+                                    <v-text color="link">Word</v-text> is a list of
+                                    <v-text color="link">elements</v-text>.
+                                    <v-text color="link">Element</v-text> is simple value like
+                                    string or number. Something comparable. List
+                                    <v-text color="link">x</v-text> is a list of lists of simple
+                                    values. Simplest example is a list of strings where
+                                    <v-text color="link">elements</v-text> are substrings
+                                    divided with spaces. Number of elements in one
+                                    <v-text color="link">word</v-text> is called
+                                    <v-text color="link">complexity</v-text>.
+                                    <v-text color="link">Elements</v-text> that occur in list
+                                    (not in one <v-text color="link">word</v-text>!) more than
+                                    <v-text color="link">n</v-text> times are
+                                    <v-text color="link">violators</v-text>.
+                                    <v-text color="link">Word</v-text> that contains
+                                    one or more <v-text color="link">violators</v-text>
+                                    called <v-text color="link">patron</v-text>. Number of
+                                    <v-text color="link">violators</v-text> in one
+                                    <v-text color="link">word</v-text> called
+                                    <v-text color="link">patronage</v-text>. The goal is to remove
+                                    <v-text color="link">patrons</v-text> till the
+                                    <v-text color="link">element</v-text> becomes
+                                    <v-text color="link">non-violator</v-text>. Those
+                                    <v-text color="link">patrons</v-text> which have
+                                    bigger <v-text color="link">patronage</v-text> are first to
+                                    remove. Next <v-text color="link">complexity</v-text> is
+                                    in priority. And at the end index of the
+                                    <v-text color="link">word</v-text> in list gives bigger
+                                    priority (this is optional).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile">
+                            <div class="content">
+                                <h3 class="is-size-5 has-text-weight-semibold">Example</h3>
+                                <p>
+                                    <code>f(['a', 'a b', 'a c e', 'a b c', 'b a d', 'b', 'b d', 'e'], 3)</code>
+                                    gives <code>['a', 'a b', 'a c e', 'b', 'b d', 'e']</code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                        <div class="tile is-child is-6">
+                            <div class="content">
+                                <h3 class="is-size-5 has-text-weight-semibold">Demo</h3>
+                                <div class="field is-horizontal">
+                                    <div class="field-body">
+                                        <div class="field">
+                                            <div class="control is-fullwidth">
+                                                <input class="input is-primary" min="0" type="number" placeholder="n"
+                                                    v-model="n">
+                                            </div>
+                                        </div>
+                                        <div class="field has-addons">
+                                            <div class="control is-expanded">
+                                                <input class="input is-primary" type="text"
+                                                    placeholder="Type a new word" v-model="newWord">
+                                            </div>
+                                            <div class="control">
+                                                <a class="button is-primary" @click="addNewWord()">
+                                                    Add
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                        <div class="tile is-child">
+                            <h3 class="is-size-6 has-text-weight-semibold">Unfiltered</h3>
+                            <v-list :list="list" deletable></v-list>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child">
+                            <h3 class="is-size-6 has-text-weight-semibold">Filtered</h3>
+                            <v-list :list="filteredList"></v-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    <footer class="footer has-background-white-ter">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Patron filtering</strong> demonstration by Rustam Azizov
+            </p>
+        </div>
+    </footer>
+    </div>
+    <script src="/src/public/js/vue.min.js"></script>
+    <script type="module" src="/src/app.js"></script>
+</body>
+
+</html>
