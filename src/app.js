@@ -16,7 +16,7 @@ new Vue({
             ["brown", "fox"],
             ["quick", "fox"],
             ["quick", "brown", "fox"],
-            ["pussy", "cat"],
+            ["funny", "cat"],
         ],
         n: 3,
         newWord: "",
